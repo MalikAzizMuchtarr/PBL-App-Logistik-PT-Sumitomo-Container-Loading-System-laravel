@@ -15,15 +15,15 @@ class CreateAppointmentTable extends Migration
     {
         Schema::create('appointment', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->foreignId('user_id')->nullable()->index('fk_appointment_to_users');
             $table->date('eta_sin')->nullable();
             $table->date('eta_btm')->nullable();
             $table->date('ata_sbi')->nullable();
             $table->string('nomer_container')->nullable();
-            $table->enum('size',[1,2]);
-            $table->integer('port_of_origin_id');
-            $table->enum('forwarder',[1,2,3]);
-            $table->enum('place_lot',[1,2,3,4]);
+            $table->enum('size',[1,2])->nullable();
+            $table->foreignId('port_of_origin_id')->nullable()->index('fk_appointment_to_port_of_origin');
+            $table->enum('forwarder',[1,2,3])->nullable();
+            $table->enum('place_lot',[1,2,3,4])->nullable();
             $table->date('free_charge_detention')->nullable();
             $table->date('free_charge_demurrage')->nullable();
             $table->string('fee_detention')->nullable();

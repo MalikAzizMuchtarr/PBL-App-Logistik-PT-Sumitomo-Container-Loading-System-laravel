@@ -15,7 +15,7 @@ class CreatePortOfOriginTable extends Migration
     {
         Schema::create('port_of_origin', function (Blueprint $table) {
             $table->id();
-            $table->string('country')->unique();
+            $table->string('country')->unique()->nullable();
             $table->string('subtotal')->nullable();
             $table->timestamps();
             $table->softDeletes();
