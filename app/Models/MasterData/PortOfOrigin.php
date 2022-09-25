@@ -29,4 +29,11 @@ class PortOfOrigin extends Model
                         'updated_at',
                         'deleted_at',
                     ];
+
+                    //one to many
+                    public function appointment()
+                    {
+                        // 2 paramters(path models, field foreign keys)
+                        return $this->hasMany('App\Models\Operational\Appointment','appointment_id');
+                    }
 }
