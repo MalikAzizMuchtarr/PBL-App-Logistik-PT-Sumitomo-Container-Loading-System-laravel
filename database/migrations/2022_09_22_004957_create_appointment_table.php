@@ -32,6 +32,7 @@ class CreateAppointmentTable extends Migration
             $table->string('subtotal_demurrage')->nullable();
             $table->string('total_stay')->nullable();
             $table->string('total_charge')->nullable();
+            $table->string('subtotal_portOfOrigin')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
