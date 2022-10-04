@@ -1,26 +1,30 @@
 <?php
 
-namespace App\Http\Controllers\Frontsite;
+namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-//use libary
-use Illuminate\Support\Facades\Storage;
+// use library here
 use Symfony\Component\HttpFoundation\Response;
 
-//use everthiing
-//use gate
-use auth;
+// use everything here
+use Gate;
+use Auth;
 
-//use models
-use App\Models\User;
-use App\Models\Operational\Appointment;
-use App\Models\MasterData\PortOfOrigin;
 
-class LandingController extends Controller
+class DashboardController extends Controller
 {
+        /**
+     * create a new controller instances
+     *
+     * @return void
+     */
 
-    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource.
@@ -29,7 +33,8 @@ class LandingController extends Controller
      */
     public function index()
     {
-        return view('pages.frontsite.landing-page.index');
+        //
+        return view('pages.backsite.dashboard.index');
     }
 
     /**
@@ -40,7 +45,7 @@ class LandingController extends Controller
     public function create()
     {
         //
-        return abort(404);
+        abort(404);
     }
 
     /**
@@ -49,11 +54,11 @@ class LandingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // public function store(Request $request)
-    // {
-    //     //
-    //     return abort(404);
-    // }
+    public function store(Request $request)
+    {
+        //
+        abort(404);
+    }
 
     /**
      * Display the specified resource.
@@ -64,7 +69,7 @@ class LandingController extends Controller
     public function show($id)
     {
         //
-        return abort(404);
+        abort(404);
     }
 
     /**
@@ -75,7 +80,8 @@ class LandingController extends Controller
      */
     public function edit($id)
     {
-        return abort(404);
+        //
+        abort(404);
     }
 
     /**
@@ -85,10 +91,11 @@ class LandingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function update(Request $request, $id)
-    // {
-    //     return abort(404);
-    // }
+    public function update(Request $request, $id)
+    {
+        //
+        abort(404);
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -98,6 +105,7 @@ class LandingController extends Controller
      */
     public function destroy($id)
     {
-        return abort(404);
+        //
+        abort(404);
     }
 }

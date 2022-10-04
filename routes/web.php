@@ -2,11 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 
+//frontsite
 use App\Http\Controllers\Frontsite\LandingController;
 use App\Http\Controllers\Frontsite\AppointmentController;
 use App\Http\Controllers\Frontsite\NotificationController;
 use App\Http\Controllers\Frontsite\ReportingController;
 
+//backsite
+
+use App\Http\Controllers\Backsite\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,16 +25,22 @@ use App\Http\Controllers\Frontsite\ReportingController;
 
 Route::resource('/', LandingController::class);
 
+Route::group(['middleware' =>['auth:sanctum','verified']], function(){
+        //appointment pages
+        Route::resource('appointment', AppointmentController::class);
+
+        //notification pages
+        Route::resource('notification', NotificationController::class);
+    
+       //notification pages
+       Route::resource('reporting', ReportingController::class);
+});
+
 Route::group(['prefix'=>'backsite', 'as' =>'baclsite.','middleware' =>['auth:sanctum','verified']], function(){
 
-    //appointment pages
-    Route::resource('appointment', AppointmentController::class);
+    //dashboard in views backsite
+    route::resource('dashboard',DashboardController::class);
 
-    //notification pages
-    Route::resource('notification', NotificationController::class);
-
-   //notification pages
-   Route::resource('reporting', ReportingController::class);
 
 });
 
