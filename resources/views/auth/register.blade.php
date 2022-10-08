@@ -70,7 +70,7 @@
       <div class="px-4 lg:px-[91px] pt-10">
         <!-- Logo Brand -->
         <a href="{{ route('index') }}" class="flex-shrink-0 inline-flex items-center">
-          <img class="h-12 lg:h-16" src="{{ asset('assets/frontsite/images/logo.png') }}" alt="Meet Doctor Logo"/>
+          <img class="h-12 lg:h-16" src="{{ asset('assets/frontsite/images/logo1.png') }}" alt="Meet Doctor Logo"/>
         </a>
 
         <div class="flex flex-col justify-center py-14 h-full lg:min-h-screen">
